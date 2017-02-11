@@ -28,7 +28,8 @@ abstract class AbstractSortedMapTest(supportsNullValues: Boolean = true) : Abstr
     fun sortedForEach() {
         val map = buildMap(1 to "A", 3 to "C", 2 to "B", 5 to "E", 4 to "D")
         val actual = arrayListOf<Int>()
-        map.forEach { key, value -> actual.add(key) }
+
+        map.entries.forEach { actual.add(it.key) }
         assertEquals(listOf(1, 2, 3, 4, 5), actual)
     }
 

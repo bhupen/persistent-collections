@@ -78,7 +78,7 @@ abstract class AbstractMapTest(val supportsNullValues: Boolean = true) {
         val map = buildMap(*pairs.toTypedArray())
         val actual = hashSetOf<Pair<Int, String>>()
 
-        map.forEach { key, value -> actual.add(Pair(key, value)) }
+        map.entries.forEach { actual.add(Pair(it.key, it.value)) }
         assertEquals(pairs, actual)
     }
 
@@ -88,7 +88,7 @@ abstract class AbstractMapTest(val supportsNullValues: Boolean = true) {
         val map = buildMap(*pairs.toTypedArray())
         val actual = hashSetOf<Pair<Int, String>>()
 
-        map.forEach { key, value -> actual.add(Pair(key, value)) }
+        map.entries.forEach { actual.add(Pair(it.key, it.value)) }
         assertEquals(pairs, actual)
     }
 
@@ -118,7 +118,8 @@ abstract class AbstractMapTest(val supportsNullValues: Boolean = true) {
         val map = buildMap(*pairs.toTypedArray())
         val actual = hashSetOf<Pair<CollidingKey, String>>()
 
-        map.forEach { key, value -> actual.add(Pair(key, value)) }
+        map.entries.forEach { actual.add(Pair(it.key, it.value)) }
+
         assertEquals(pairs, actual)
     }
 
@@ -128,7 +129,8 @@ abstract class AbstractMapTest(val supportsNullValues: Boolean = true) {
         val map = buildMap(*pairs.toTypedArray())
         val actual = hashSetOf<Pair<CollidingKey, String>>()
 
-        map.forEach { key, value -> actual.add(Pair(key, value)) }
+        map.entries.forEach { actual.add(Pair(it.key, it.value)) }
+
         assertEquals(pairs, actual)
     }
 
